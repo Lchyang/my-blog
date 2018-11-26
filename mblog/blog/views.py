@@ -3,7 +3,7 @@ import markdown
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
 from comments.forms import CommentForm
-from .models import Post
+from .models import Post, About
 
 
 class IndexView(ListView):
@@ -23,7 +23,8 @@ class IndexView(ListView):
 #     )
 
 def about(request):
-    return render(request, 'blog/about.html')
+    about = get_object_or_404(About)
+    return render(request, 'blog/about.html', context={'about': about})
 
 def post(request, pk):
     post = get_object_or_404(Post, pk=pk)

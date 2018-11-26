@@ -44,4 +44,5 @@ class Post(models.Model):
         self.views += 1
         self.save(update_fields=['views'])
 
-
+class About(models.Model):
+    body = models.TextField()
