@@ -29,6 +29,9 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
 
     author = models.ForeignKey(User)
+    #views 记录阅读量
+    views = models.PositiveIntegerField(default=0)
+
 
     def __str__(self):
         return self.title
@@ -36,5 +39,9 @@ class Post(models.Model):
     # 自动生成post的URL
     def get_absolute_url(self):
         return reverse('blog:post', kwargs={'pk': self.pk})
+
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
 
 

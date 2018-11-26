@@ -21,4 +21,7 @@ def post(request, pk):
                                       'markdown.extensions.toc',
                                   ]
                                   )
+    # 调用increate_views 阅读量+1
+    post.increase_views()
+
     return render(request, 'blog/post.html', context={'post':post})
