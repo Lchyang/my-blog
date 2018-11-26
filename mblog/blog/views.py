@@ -12,6 +12,10 @@ class IndexView(ListView):
     context_object_name = 'post_list'
     paginate_by = 10
 
+    # 根据时间排序
+    def get_queryset(self):
+        return super(IndexView, self).get_queryset().order_by('-create_time')
+
 # def index(request):
 #     post_list = Post.objects.all().order_by('-create_time')
 #
