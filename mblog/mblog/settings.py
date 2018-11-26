@@ -25,7 +25,7 @@ SECRET_KEY = '+a*_jty#u(t#_l!#(xrfr#xv$ycp#(=wh6)fh55z%l-!u&8$hs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,4 +127,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'blog')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'bootstrap/static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/bootstrap'),)
