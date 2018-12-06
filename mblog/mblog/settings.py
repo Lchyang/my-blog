@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'comments',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'blog')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/bootstrap'),)
+
+
+#celery
+from .celeryconfig import *
+BROKER_BACKEND = 'redis'
+BROKER_URL = 'redis://localhost:6379/1'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/2'
